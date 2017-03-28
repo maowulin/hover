@@ -1,0 +1,79 @@
+/*鼠标滑过出现中括号*/
+.text_bracket::before, .text_bracket::after {
+	display: inline-block;
+	opacity: 0;
+    -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+    -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+    transition: transform 0.3s, opacity 0.2s;
+}
+
+.text_bracket::after{
+	margin-left: 10px ;
+	content: "]";
+    -webkit-transform: translateX(20px);
+    -moz-transform: translateX(20px);
+    transform: translateX(20px);
+}
+
+.text_bracket::before{
+	margin-right: 10px;
+	content: "[";
+	-webkit-transform: translateX(-20px);
+    -moz-transform: translateX(-20px);
+    transform: translateX(-20px);
+}
+
+.text_bracket:hover::before, .text_bracket:hover::after, .text_bracket:focus::before, .text_bracket:focus::after {
+	opacity: 1;
+	-webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    transform: translateX(0);
+}
+
+.text_turnedup {
+	position: relative;
+}
+
+
+/*鼠标滑过出现向上翻转*/
+.text_turnedup {
+	position: relative;
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transform-origin: 50% 0;
+	-moz-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+}
+
+.text_turnedup:hover, text_turnedup:focus {
+	-webkit-transform: rotateX(90deg) translateY(-22px);
+	-moz-transform: rotateX(90deg) translateY(-22px);
+	transform: rotateX(90deg) translateY(-22px);
+}
+
+.text_turnedup::before {
+    position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	/*定义自定义属性*/
+	content: attr(data-hover);
+	-webkit-transition: background 0.3s;
+	-moz-transition: background 0.3s;
+	transition: background 0.3s;
+	-webkit-transform: rotateX(-90deg);
+	-moz-transform: rotateX(-90deg);
+	transform: rotateX(-90deg);
+	-webkit-transform-origin: 50% 0;
+	-moz-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+}
+
+.text_turnedup:hover::before, .text_turnedup:focus::before {
+	/*background: #28a2ee;*/
+}
