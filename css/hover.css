@@ -30,13 +30,13 @@
     transform: translateX(0);
 }
 
-.text_turnedup {
+.turnedUp {
 	position: relative;
 }
 
 
 /*鼠标滑过出现向上翻转*/
-.text_turnedup {
+.turnedUp {
 	position: relative;
 	-webkit-transition: -webkit-transform 0.3s;
 	-moz-transition: -moz-transform 0.3s;
@@ -49,13 +49,13 @@
 	transform-style: preserve-3d;
 }
 
-.text_turnedup:hover, text_turnedup:focus {
+.turnedUp:hover, text_turnedup:focus {
 	-webkit-transform: rotateX(90deg) translateY(-22px);
 	-moz-transform: rotateX(90deg) translateY(-22px);
 	transform: rotateX(90deg) translateY(-22px);
 }
 
-.text_turnedup::before {
+.turnedUp::before {
     position: absolute;
 	top: 100%;
 	left: 0;
@@ -74,6 +74,220 @@
 	transform-origin: 50% 0;
 }
 
-.text_turnedup:hover::before, .text_turnedup:focus::before {
+.turnedUp:hover::before, .turnedUp:focus::before {
 	/*background: #28a2ee;*/
+}
+
+/*悬停出现下滑线*/
+.underlineDown {
+	position: relative;
+}
+.underlineDown::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*下划线宽度高度可自调*/
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    transform: translateY(10px);
+}
+.underlineDown:hover::after, .underlineDown:focus::after {
+	opacity: 1;
+	/*下划线距离文字高度可自调*/
+	transform: translateY(1px);
+}
+
+.underlineUp {
+	position: relative;
+}
+.underlineUp::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*下划线宽度高度颜色可自调*/
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    transform: translateY(-10px);
+}
+.underlineUp:hover::after, .underlineUp:focus::after {
+	opacity: 1;
+	/*下划线距离文字高度可自调*/
+	transform: translateY(1px);
+}
+
+.underlineLeft {
+	position: relative;
+}
+.underlineLeft::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*下划线宽度高度颜色可自调*/
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.underlineLeft:hover::after, .underlineLeft:focus::after {
+	opacity: 1;
+	/*下划线距离文字高度可自调*/
+	transform: translateX(0px);
+}
+
+.underlineRight {
+	position: relative;
+}
+.underlineRight::after {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    /*下划线宽度高度颜色可自调*/
+    width: 100%;
+    height: 4px;
+    background: rgba(0,0,0,0.1);
+    content: '';
+    opacity: 0;
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    transform: translateX(100%);
+}
+.underlineRight:hover::after, .underlineRight:focus::after {
+	opacity: 1;
+	/*下划线距离文字高度可自调*/
+	transform: translateX(0px);
+}
+
+/*滚动, 请嵌套a标签使用*/
+/*向上*/
+.rollUp {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	
+}
+.rollUp a{
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+.rollUp a::before {
+	position: absolute;
+    top: 200%;
+    content: attr(data-hover);
+    -webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+.rollUp a:hover, .rollUp a:focus {
+	-webkit-transform: translateY(-100%);
+	-moz-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+/*向下*/
+.rollDown {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	
+}
+.rollDown a{
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+.rollDown a::before {
+	position: absolute;
+    top: -200%;
+    content: attr(data-hover);
+    -webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	transform: translateY(100%);
+}
+.rollDown a:hover, .rollDown a:focus {
+	-webkit-transform: translateY(100%);
+	-moz-transform: translateY(100%);
+	transform: translateY(100%);
+}
+
+/*向左*/
+.rollLeft {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	
+}
+.rollLeft a{
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+.rollLeft a::before {
+	position: absolute;
+    left: -200%;
+    /*请将宽度设置为a标签宽度*/
+    width: 180px;
+    content: attr(data-hover);
+    -webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.rollLeft a:hover, .rollLeft a:focus {
+	-webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	transform: translateX(100%);
+}
+
+/*向右*/
+.rollRight {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	
+}
+.rollRight a{
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transition: -moz-transform 0.3s;
+	transition: transform 0.3s;
+}
+.rollRight a::after {
+	position: absolute;
+    right: 0;
+    /*请将宽度设置为a标签宽度*/
+    width: 180px;
+    content: attr(data-hover);
+    -webkit-transform: translateX(100%);
+	-moz-transform: translateX(100%);
+	transform: translateX(100%);
+}
+.rollRight a:hover, .rollRight a:focus {
+	-webkit-transform: translateX(-100%);
+	-moz-transform: translateX(-100%);
+	transform: translateX(-100%);
 }
